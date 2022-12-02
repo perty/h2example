@@ -1,13 +1,13 @@
 
 create table participant
 (
-    id   bigint generated always as identity primary key,
+    id   bigint auto_increment primary key,
     name text
 );
 
 create table tip
 (
-    id          bigint generated always as identity primary key,
+    id          bigint auto_increment primary key,
     participant bigint not null,
     points      int    not null default 0,
     foreign key (participant) references participant (id)
@@ -15,7 +15,7 @@ create table tip
 
 create table driver
 (
-    id   bigint generated always as identity primary key,
+    id   bigint auto_increment primary key,
     name varchar(3) not null unique
 );
 
@@ -29,13 +29,13 @@ create table tip_driver
 
 create table grand_prix
 (
-    id   bigint generated always as identity primary key,
+    id   bigint auto_increment primary key,
     name text unique
 );
 
 create table session
 (
-    id           bigint generated always as identity primary key,
+    id           bigint auto_increment primary key,
     grand_prix   bigint not null,
     session_type text,
     starts       timestamp,

@@ -17,11 +17,11 @@ The F1 drivers is a list of drivers that enters at least one session during the 
 ### Session
 A session is either a qualification or a race. A session is part of a Grand Prix. A session has a start time which is the deadline for creating tips.
 
-### Participant
-The users of the system that creates tips.
-
 ### Result
 When a session is over, there is a result which is a list of the top ten drivers, in order.
+
+### Participant
+The users of the system that creates tips.
 
 ### Point
 When there is a result, a tip receives points as described above.
@@ -38,17 +38,17 @@ classDiagram
         QualOrRace: type
         Time: starts
     }
+    class SessionResult {
+    }
     class Participant {
         String: name
-    }
-    class Result {
     }
     class GrandPrix {
         String: name
     }
-    
     GrandPrix --|> Session
-    Result --|> Driver
+    SessionResult --|> Driver
+    SessionResult --|> Session
     Tip --|> Driver
     Tip --|> Session
     Participant --|> Tip
